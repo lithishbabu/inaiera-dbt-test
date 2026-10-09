@@ -1,6 +1,8 @@
 version: 2
 
 models:
+  - name: revenue_upstream_check
+    description: "Fails the run when the customers project has not built in the last 5 minutes."
   - name: revenue_orders
     description: "Revenue orders with the customer's city."
     columns:
@@ -18,3 +20,5 @@ models:
     columns:
       - name: city
         tests: [unique, not_null]
+  - name: revenue_last_build
+    description: "Stamped when a revenue build finishes; read by downstream projects."

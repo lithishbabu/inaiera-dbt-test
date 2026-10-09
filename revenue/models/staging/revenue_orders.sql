@@ -1,3 +1,4 @@
+-- depends_on: {{ ref('revenue_upstream_check') }}
 -- Orders that count as revenue, with the customer's city attached.
 select
     o.order_id,

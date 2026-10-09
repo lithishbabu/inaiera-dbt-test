@@ -9,6 +9,10 @@ model-paths: ["models"]
 test-paths: ["tests"]
 clean-targets: ["target"]
 
+vars:
+  # Fail the run if the customers project has not built within this many minutes.
+  customers_max_age_minutes: 5
+
 models:
   revenue:
     staging:

@@ -1,3 +1,4 @@
+-- depends_on: {{ ref('products_upstream_check') }}
 -- Order lines that count as revenue, tagged with the date of their order.
 select
     l.order_item_id,

@@ -1,21 +1,22 @@
-name: 'products'
+name: 'executive'
 version: '1.0.0'
 config-version: 2
 
 # The dbt Runner rewrites this to its generated profile at run time.
-profile: 'products'
+profile: 'executive'
 
 model-paths: ["models"]
+macro-paths: ["macros"]
 test-paths: ["tests"]
 clean-targets: ["target"]
 
 vars:
-  # Fail the run if the customers project has not built within this many minutes.
-  customers_max_age_minutes: 5
+  # Run only if at least ONE of products / revenue built within this many minutes.
+  upstream_max_age_minutes: 7
 
 models:
-  products:
+  executive:
     staging:
-      +materialized: view
+      +materialized: table
     marts:
       +materialized: table

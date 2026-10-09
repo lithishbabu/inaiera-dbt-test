@@ -1,0 +1,14 @@
+version: 2
+
+models:
+  - name: exec_upstream_check
+    description: "Fails the run unless products or revenue built recently; records which were fresh."
+  - name: exec_summary
+    description: "Headline numbers from the upstream projects that are up to date."
+    columns:
+      - name: data_from
+        tests:
+          - accepted_values:
+              values: ['products + revenue', 'revenue only', 'products only']
+      - name: built_at
+        tests: [not_null]

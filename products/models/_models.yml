@@ -1,6 +1,8 @@
 version: 2
 
 models:
+  - name: products_upstream_check
+    description: "Fails the run when the customers project has not built in the last 5 minutes."
   - name: product_order_lines
     description: "Revenue order lines (cancelled/returned orders excluded)."
     columns:
@@ -18,3 +20,5 @@ models:
     columns:
       - name: category
         tests: [unique, not_null]
+  - name: products_last_build
+    description: "Stamped when a products build finishes; read by downstream projects."
