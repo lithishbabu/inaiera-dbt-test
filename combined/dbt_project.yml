@@ -1,0 +1,22 @@
+name: 'combined'
+version: '1.0.0'
+config-version: 2
+
+# The dbt Runner rewrites this to its generated profile at run time.
+profile: 'combined'
+
+model-paths: ["models"]
+macro-paths: ["macros"]
+test-paths: ["tests"]
+clean-targets: ["target"]
+
+vars:
+  # Run only if BOTH products and revenue built within this many minutes.
+  upstream_max_age_minutes: 7
+
+models:
+  combined:
+    staging:
+      +materialized: table
+    marts:
+      +materialized: table

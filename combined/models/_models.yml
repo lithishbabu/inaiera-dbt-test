@@ -1,0 +1,12 @@
+version: 2
+
+models:
+  - name: combined_upstream_check
+    description: "Fails the run unless BOTH products and revenue built recently."
+  - name: revenue_reconciliation
+    description: "Compares the grand revenue total reported by products and by revenue."
+    columns:
+      - name: totals_match
+        tests: [not_null]
+      - name: built_at
+        tests: [not_null]
