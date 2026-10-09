@@ -1,0 +1,17 @@
+name: 'products'
+version: '1.0.0'
+config-version: 2
+
+# The dbt Runner rewrites this to its generated profile at run time.
+profile: 'products'
+
+model-paths: ["models"]
+test-paths: ["tests"]
+clean-targets: ["target"]
+
+models:
+  products:
+    staging:
+      +materialized: view
+    marts:
+      +materialized: table

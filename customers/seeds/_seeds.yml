@@ -1,0 +1,19 @@
+version: 2
+
+seeds:
+  - name: raw_customers
+    description: "Source extract of store customers (CSV seed)."
+    config:
+      column_types:
+        signup_date: date
+  - name: raw_products
+    description: "Product catalogue. Prices are stored in cents."
+  - name: raw_orders
+    description: "One row per order."
+    config:
+      column_types:
+        order_date: date
+  - name: raw_order_items
+    description: "One row per product line on an order."
+  - name: raw_payments
+    description: "One row per payment received. Amounts are in cents."

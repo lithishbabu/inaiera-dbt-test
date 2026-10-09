@@ -1,0 +1,12 @@
+version: 2
+
+# This project does not load its own data: it reads what the `customers`
+# project in this same repo has already built. Run `customers` first.
+sources:
+  - name: customers_project
+    schema: public
+    tables:
+      - name: int_order_items_enriched
+        description: "One row per order line with product details (built by the customers project)."
+      - name: fct_orders
+        description: "One row per order with totals and a revenue flag (built by the customers project)."

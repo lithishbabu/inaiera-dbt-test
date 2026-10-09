@@ -1,0 +1,28 @@
+name: 'customers'
+version: '1.0.0'
+config-version: 2
+
+# The dbt Runner rewrites this to its generated profile at run time.
+profile: 'customers'
+
+model-paths: ["models"]
+seed-paths: ["seeds"]
+macro-paths: ["macros"]
+snapshot-paths: ["snapshots"]
+test-paths: ["tests"]
+clean-targets: ["target"]
+
+vars:
+  # Daily revenue only counts orders placed on/after this date.
+  revenue_start_date: '2026-01-01'
+  # Orders in these statuses never count as revenue.
+  non_revenue_statuses: ['cancelled', 'returned']
+
+models:
+  customers:
+    staging:
+      +materialized: view
+    intermediate:
+      +materialized: view
+    marts:
+      +materialized: table

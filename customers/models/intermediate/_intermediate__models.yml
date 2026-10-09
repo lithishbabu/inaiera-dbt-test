@@ -1,0 +1,17 @@
+version: 2
+
+models:
+  - name: int_order_items_enriched
+    description: "Order lines joined to products, with a computed line_total."
+    columns:
+      - name: order_item_id
+        data_tests: [unique, not_null]
+      - name: line_total
+        data_tests: [positive_value]
+  - name: int_order_payments
+    description: "Payments rolled up to one row per order."
+    columns:
+      - name: order_id
+        data_tests: [unique, not_null]
+      - name: total_paid
+        data_tests: [positive_value]

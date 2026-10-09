@@ -1,0 +1,20 @@
+version: 2
+
+models:
+  - name: product_order_lines
+    description: "Revenue order lines (cancelled/returned orders excluded)."
+    columns:
+      - name: order_item_id
+        tests: [unique, not_null]
+  - name: product_performance
+    description: "Sales summary per product."
+    columns:
+      - name: product_id
+        tests: [unique, not_null]
+      - name: revenue
+        tests: [not_null]
+  - name: category_performance
+    description: "Sales summary per product category."
+    columns:
+      - name: category
+        tests: [unique, not_null]
