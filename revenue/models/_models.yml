@@ -1,0 +1,20 @@
+version: 2
+
+models:
+  - name: revenue_orders
+    description: "Revenue orders with the customer's city."
+    columns:
+      - name: order_id
+        tests: [unique, not_null]
+  - name: monthly_revenue
+    description: "Revenue per month."
+    columns:
+      - name: order_month
+        tests: [unique, not_null]
+      - name: revenue
+        tests: [not_null]
+  - name: city_revenue
+    description: "Revenue per city."
+    columns:
+      - name: city
+        tests: [unique, not_null]

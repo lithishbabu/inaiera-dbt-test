@@ -1,0 +1,17 @@
+name: 'revenue'
+version: '1.0.0'
+config-version: 2
+
+# The dbt Runner rewrites this to its generated profile at run time.
+profile: 'revenue'
+
+model-paths: ["models"]
+test-paths: ["tests"]
+clean-targets: ["target"]
+
+models:
+  revenue:
+    staging:
+      +materialized: view
+    marts:
+      +materialized: table

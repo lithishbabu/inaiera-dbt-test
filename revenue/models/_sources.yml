@@ -1,0 +1,12 @@
+version: 2
+
+# This project reads what the `customers` project in this repo has built,
+# so run `customers` first.
+sources:
+  - name: customers_project
+    schema: public
+    tables:
+      - name: fct_orders
+        description: "One row per order with totals and a revenue flag."
+      - name: dim_customers
+        description: "One row per customer with lifetime value and segment."
