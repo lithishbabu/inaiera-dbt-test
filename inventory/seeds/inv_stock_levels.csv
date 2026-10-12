@@ -1,0 +1,11 @@
+sku,product_name,warehouse,qty_on_hand,reorder_level,supplier_id,last_counted
+LAP-002,Laptop Stand,Hyderabad,42,20,4,2026-10-01
+LAP-003,Laptop Sleeve,Hyderabad,8,15,4,2026-10-01
+PHN-001,Phone Case,Bengaluru,120,50,2,2026-10-02
+PHN-002,Screen Guard,Bengaluru,0,40,2,2026-10-02
+AUD-001,Wireless Earbuds,Mumbai,18,25,3,2026-09-30
+AUD-002,Bluetooth Speaker,Mumbai,64,20,3,2026-09-30
+KEY-001,Mechanical Keyboard,Chennai,30,30,1,2026-10-03
+MOU-001,Wireless Mouse,Chennai,75,35,1,2026-10-03
+MON-001,27in Monitor,Hyderabad,5,10,1,2026-10-01
+CAB-001,USB-C Cable,Chennai,300,100,1,2026-10-03

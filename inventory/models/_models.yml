@@ -1,0 +1,26 @@
+version: 2
+
+models:
+  - name: inv_stg_stock_levels
+    description: "Typed stock counts per SKU and warehouse."
+    columns:
+      - name: sku
+        tests: [not_null]
+  - name: inv_stg_suppliers
+    columns:
+      - name: supplier_id
+        tests: [unique, not_null]
+  - name: inv_stock_status
+    description: "Stock level and reorder status per SKU and warehouse."
+    columns:
+      - name: stock_status
+        tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: ['ok', 'reorder', 'out_of_stock']
+  - name: inv_supplier_summary
+    description: "Stock held and reorder needs per supplier."
+    columns:
+      - name: supplier_id
+        tests: [unique, not_null]
