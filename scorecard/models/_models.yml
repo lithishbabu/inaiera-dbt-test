@@ -1,0 +1,14 @@
+version: 2
+
+models:
+  - name: scorecard_upstream_check
+    description: "Fails the run unless the combined project built recently."
+  - name: business_scorecard
+    description: "Headline numbers of the pipeline plus the reconciliation result."
+    columns:
+      - name: total_revenue
+        tests: [not_null]
+      - name: reconciled
+        tests: [not_null]
+      - name: built_at
+        tests: [not_null]
