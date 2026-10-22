@@ -1,0 +1,29 @@
+name: 'trino_sales'
+version: '1.0.0'
+config-version: 2
+
+# The dbt Runner rewrites this to its generated profile at run time (engine Trino).
+profile: 'trino_sales'
+
+model-paths: ["models"]
+seed-paths: ["seeds"]
+test-paths: ["tests"]
+clean-targets: ["target"]
+
+seeds:
+  trino_sales:
+    +column_types:
+      order_id: bigint
+      customer_id: bigint
+      product_id: bigint
+      order_item_id: bigint
+      quantity: integer
+      unit_price: "decimal(12,2)"
+      order_date: date
+
+models:
+  trino_sales:
+    staging:
+      +materialized: view
+    marts:
+      +materialized: table

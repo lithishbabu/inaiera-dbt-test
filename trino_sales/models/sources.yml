@@ -1,0 +1,11 @@
+version: 2
+
+sources:
+  # Trino reads another catalog in the same query: the pg_lake warehouse (Postgres) through Trino's
+  # read-only "postgresql" catalog. `database` is the Trino catalog name.
+  - name: warehouse
+    database: postgresql
+    schema: public
+    tables:
+      - name: dim_customers
+        description: "Customers built by the dbt projects on pg_lake (read-only from Trino)."
